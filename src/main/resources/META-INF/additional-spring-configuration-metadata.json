@@ -1,0 +1,18 @@
+{
+  "properties": [
+    {
+      "name": "spring.redis.cluster.username",
+      "type": "java.lang.String",
+      "description": "The username used to authenticate to the Redis Cluster."
+    },
+    {
+      "name": "spring.redis.cluster.password",
+      "type": "java.lang.String",
+      "description": "The password used to authenticate to the Redis Cluster."
+    },
+    {
+      "name": "spring.redis.mode",
+      "type": "java.lang.String",
+      "description": "Define if the Redis target architecture is standalone (single-node) or cluster (multi-node)."
+    }
+  ] }
