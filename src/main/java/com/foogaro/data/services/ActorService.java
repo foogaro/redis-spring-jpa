@@ -36,6 +36,10 @@ public class ActorService {
         return repository.save(actor);
     }
 
+    public Actor saveNoCache(Actor actor) {
+        return repository.save(actor);
+    }
+
     @CacheEvict
     public void deleteById(Long id) {
         repository.deleteById(id);
@@ -46,3 +50,12 @@ public class ActorService {
         repository.deleteAll();
     }
 }
+
+
+
+
+
+
+
+
+
