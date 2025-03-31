@@ -3,18 +3,22 @@
 ## Actor cURL commands
 
 ### CREATE
-curl -v -X POST -H "Content-Type: application/json" -d '{"firstname":"Jimmy","lastname":"Fontana","yearOfBirth":"1970"}' http://localhost:18080/api/actors/
-curl -v -X POST -H "Content-Type: application/json" -d '{"firstname":"Jack","lastname":"The Ripper","yearOfBirth":"1880"}' http://localhost:18080/api/actors/
+curl -v -X POST -H "Content-Type: application/json" -d '{"firstname":"Jimmy","lastname":"Fontana","yearOfBirth":"1970"}' http://localhost:8080/api/actors/
+curl -v -X POST -H "Content-Type: application/json" -d '{"firstname":"Jack","lastname":"The Ripper","yearOfBirth":"1880"}' http://localhost:8080/api/actors/
 
 ### READ
-curl -v http://localhost:18080/api/actors/
-curl -v -w "@curl-format.txt" http://localhost:18080/api/actors/1
-curl -v -w "@curl-format.txt" http://localhost:18080/api/actors/2
+curl -v -w "@curl-format.txt" http://localhost:8080/api/actors/1
+curl -v -w "@curl-format.txt" http://localhost:8080/api/actors/2
+curl -v -w "@curl-format.txt" http://localhost:8080/api/actors/
 
 ### UPDATE
-curl -v -X PUT -H "Content-Type: application/json" -d '{"firstname":"Jack","lastname":"Sparrow","yearOfBirth":"1880"}' http://localhost:18080/api/actors/2
-curl -v -X PUT -H "Content-Type: application/json" -d '{"firstname":"Jimmy","lastname":"Smith","yearOfBirth":"1970"}' http://localhost:18080/api/actors/2
+curl -v -X PUT -H "Content-Type: application/json" -d '{"firstname":"Jack","lastname":"Sparrow","yearOfBirth":"1880"}' http://localhost:8080/api/actors/2
+curl -v -X PUT -H "Content-Type: application/json" -d '{"firstname":"Jimmy","lastname":"Smith","yearOfBirth":"1970"}' http://localhost:8080/api/actors/2
 
 ### DELETE
-curl -v -X DELETE http://localhost:18080/api/actors/2
-curl -v -X DELETE http://localhost:18080/api/actors/
+curl -v -X DELETE http://localhost:8080/api/actors/2
+curl -v -X DELETE http://localhost:8080/api/actors/
+
+### GENERATE RANDOM ACTORS
+curl -v -X POST http://localhost:8080/api/generate/100000
+
