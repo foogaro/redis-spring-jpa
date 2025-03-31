@@ -2,6 +2,7 @@ package com.foogaro.data.controllers;
 
 import com.foogaro.data.models.Actor;
 import com.foogaro.data.services.ActorService;
+import com.github.javafaker.Faker;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -50,6 +51,20 @@ public class ActorController {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+
+	@PostMapping("/generate/{numOfActors}")
+	public ResponseEntity<Actor> create(@PathVariable("numOfActors") int numOfActors) {
+		try {
+			Faker faker = new Faker();
+			for (int i = 0; i < numOfActors; i++) {
+				Actor _actor = service.saveNoCache(new Actor(faker.name().firstName(),faker.name().lastName(), faker.number().numberBetween(1925, 2000)));
+			}
+			return new ResponseEntity<>(null, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
 
 	@PutMapping("/{id}")
 	public ResponseEntity<Actor> update(@PathVariable("id") long id, @RequestBody Actor actor) {
