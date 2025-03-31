@@ -8,10 +8,10 @@ import org.springframework.data.redis.repository.configuration.EnableRedisReposi
 @EnableCaching
 @EnableRedisRepositories
 @SpringBootApplication
-public class SpringRedisL2CacheApplication {
+public class RedisSpringJPAApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringRedisL2CacheApplication.class, args);
+		SpringApplication.run(RedisSpringJPAApplication.class, args);
 	}
 
 }
